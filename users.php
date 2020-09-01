@@ -44,7 +44,7 @@ if ($selecting->num_rows > 0) {
 
                 foreach ($username as $key => $user) {
                 ?>
-                    <div><?php echo $key . ". &nbsp;" . ucfirst($user); ?></div>
+                    <div><?php echo $key + 1 . ". &nbsp;" . ucfirst($user); ?></div>
 
                 <?php
                 }

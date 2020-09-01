@@ -96,6 +96,7 @@ function get_students($dept, $text, $first, $no_of_students)
 {
     // require 'student.php';
     $array = $_POST['notarray'];
+    $array =  str_replace(" ,", ",", $array);
     $array =  str_replace(", ", ",", $array);
     $array = explode(",", $array);
     $students = [];
@@ -106,6 +107,9 @@ function get_students($dept, $text, $first, $no_of_students)
         $start = strval($i);
         $information = strstr($text, $start);
         $value = strstr($information, $_POST['stop'], true);
+        if ($value == '') {
+            break;
+        }
         // Formatting value
         $value = str_replace(')', ') ', $value); //so that program does not think it is one elem with
         $value = str_replace('(', ' (', $value); //the prev or next elem due to mistyping / error
@@ -120,6 +124,7 @@ function get_students($dept, $text, $first, $no_of_students)
         $value = array_map('trim', $value);
         $value = array_filter($value);
         $value = array_values($value);
+
 
         $identity = [$value[0], $value[2], $value[3], $value[1], $value[4]];
         $result = [$value[count($value) - 99 + 23], $value[count($value) - 1], $value[count($value) - 2], $value[count($value) - 3]];

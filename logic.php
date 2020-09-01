@@ -18,7 +18,7 @@ $subjects = $data[1];
     <link rel="stylesheet" href="./my_vendors/bootstrap.min.css" />
     <link rel="stylesheet" href="./my_vendors/datatables.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <title>Analysis</title>
+    <title>Logic</title>
     <style>
         .green {
             color: green;
