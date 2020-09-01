@@ -17,7 +17,7 @@
       }
 
       body * {
-         font-family: "Karla", serif !important;
+         font-family: "Karla", serif;
       }
    </style>
 </head>

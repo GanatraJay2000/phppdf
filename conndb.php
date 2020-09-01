@@ -18,6 +18,12 @@ subjects json NOT NULL)";
 $conn->query($create_files_table);
 
 
+$create_users_table = "CREATE TABLE IF NOT EXISTS users(
+	id INT(10) PRIMARY KEY AUTO_INCREMENT,
+	username VARCHAR(255),
+	password VARCHAR(255)
+);";
+$creating_users_table = $conn->query($create_users_table);
 
 
 // if ($conn->connect_error) {

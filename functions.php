@@ -1,5 +1,4 @@
 <?php
-
 function get_data()
 {
     require('conndb.php');
@@ -18,7 +17,9 @@ function get_data()
             while ($row = $selecting->fetch_assoc()) {
                 $dbsubjects = $row['subjects'];
                 $dbstudents = $row['text'];
+                $filename = $row['filename'];
             }
+            $_SESSION['filename'] = $filename;
             $dbstudents = json_decode($dbstudents);
             $dbsubjects = json_decode($dbsubjects);
             $data = array($dbstudents, $dbsubjects);
@@ -40,6 +41,7 @@ function get_data()
         }
     } elseif (isset($_POST['filename'])) {
         $filename = $_POST['filename'];
+        $_SESSION['filename'] = $filename;
         $select = "SELECT * FROM files WHERE filename='$filename';";
         $selecting = $conn->query($select);
         if ($selecting->num_rows > 0) {
@@ -60,8 +62,10 @@ function get_data()
             while ($row = $selecting->fetch_assoc()) {
                 $dbsubjects = $row['subjects'];
                 $dbstudents = $row['text'];
+                $filename = $row['filename'];
             }
         }
+        $_SESSION['filename'] = $filename;
         $dbstudents = json_decode($dbstudents);
         $dbsubjects = json_decode($dbsubjects);
         $data = array($dbstudents, $dbsubjects);
